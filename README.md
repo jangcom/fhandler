@@ -32,11 +32,11 @@
 <h1 id="SYNOPSIS">SYNOPSIS</h1>
 
 <pre><code>    python fhandler.py [-h] [--func FUNC]
-                       [--flag FLAG] [--inplace] [--nopause]
+                       [--flag FLAG] [--inplace]
                        [--cmt_symbs [CMT_SYMBS [CMT_SYMBS ...]]]
-                       [--num_spaces NUM_SPACES] [--sep_from SEP_FROM]
-                       [--sep_to SEP_TO] [--add_row_idx] [--ts_lev {d,dt,none}]
-                       [--ts_pos {bef,aft}]
+                       [--num_spaces NUM_SPACES]
+                       [--sep_from SEP_FROM] [--sep_to SEP_TO] [--add_row_idx]
+                       [--ts_lev {d,dt,none}] [--ts_pos {bef,aft}] [--nopause]
                        file [file ...]</code></pre>
 
 <h1 id="DESCRIPTION">DESCRIPTION</h1>
@@ -66,9 +66,6 @@
     --inplace
         Changes will be made directly to the input files.
 
-    --nopause
-        Do not pause the shell at the end of the program.
-
     --cmt_symbs [CMT_SYMBS [CMT_SYMBS ...]]
         Comment symbols of the input files
 
@@ -89,6 +86,9 @@
 
     --ts_pos {bef,aft}
         [tilder] Timestamp position relative to the input filename
+
+    --nopause
+        Do not pause the shell at the end of the program.
 
     file ...
         Files to be handled</code></pre>
