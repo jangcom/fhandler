@@ -1,0 +1,123 @@
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# phitar - A PHITS wrapper for targetry design
+# phitar v1.05 (2020-06-13)
+# Perl v5.30.0
+# Current time: 2020-07-02 06:01:08
+#
+# Jaewoong Jang
+# jangj@korea.ac.kr
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+#---------------------------------------------------------------------
+# Yield calculation conditions (last evaluated)
+#---------------------------------------------------------------------
+# Source particle: electron
+# Source energy distribution: gaussian_nrg
+# Center energy: 50 MeV
+# FWHM: 1 MeV, cutoff min: 47 MeV, cutoff max: 53 MeV
+# Source average current: 10.000000 uA
+# Source spatial distribution: gaussian_xy
+# FWHM on the xy plane: 4.5 mm
+# z-axis coordinates: -50 mm to -50 mm
+#
+# Converter material:      w
+# Converter density ratio: 1.000000
+# Converter mass density:  19.250000 g cm^{-3}
+# Converter diameter:      25.000000 mm
+# Converter thickness:     3.000000 mm
+# Converter volume:        1.472622 cm^{3}
+# Converter mass:          28.347965 g
+#
+# Converter-Mo target distance: 13.000000 mm
+#
+# Mo target:               moo3
+# Mo target density ratio: 1.000000
+# Mo target mass density:  4.690000 g cm^{-3}
+# Mo target diameter:      10.000000 mm
+# Mo target thickness:     5.000000 mm
+# Mo target volume:        0.392699 cm^{3}
+# Mo target mass:          1.841759 g
+#
+# Upstream flux monitor material: au
+# Upstream flux monitor density ratio: 1.000000
+# Upstream flux monitor mass density: 19.300000 g cm^{-3}
+# Upstream flux monitor diameter: 10.000000 mm
+# Upstream flux monitor thickness: 50.000000 um
+# Upstream flux monitor volume: 0.003927 cm^{3}
+# Upstream flux monitor mass: 0.075791 g
+#
+# Downstream flux monitor material: au
+# Downstream flux monitor density ratio: 1.000000
+# Downstream flux monitor mass density: 19.300000 g cm^{-3}
+# Downstream flux monitor diameter: 10.000000 mm
+# Downstream flux monitor thickness: 50.000000 um
+# Downstream flux monitor volume: 0.003927 cm^{3}
+# Downstream flux monitor mass: 0.075791 g
+# No target wrap
+#
+# Mo-100 enrichment level: 0.097440
+# Average beam current:    10.000000 uA (6.241509e+13 electrons s^{-1})
+# Irradiation time:        0.050000 h
+#
+# Summary file:            wrcc-vhgt0p30-frad1p25-fgap1p30.out
+# maxcas:                  1000
+# maxbch:                  100
+#
+# Fluence file:            wrcc-vhgt0p30-frad1p25-fgap1p30-track-eng-moo3.ang
+# Fluence energy range:    8.269454--53.022376 MeV
+# Fluence ne:              1000
+# Fluence de:              0.044753 MeV
+# Fluence unit:            1/cm^2/source (PHITS tally unit number 1)
+#
+# xs file:                 tendl2015_mo100_gn_mf3_t4.dat
+# xs interpolation algo:   csplines
+# xs energy range:         8.291830--53.000000 MeV
+# xs ne:                   1000
+# xs de:                   0.044750 MeV
+#---------------------------------------------------------------------
+#---------------------------------------------------------------------
+# Part of calculation results (last evaluated)
+#---------------------------------------------------------------------
+# MoO_{3} mass density:          4.690000 g cm^{-3}
+# MoO_{3} number density:        1.962101e+22 cm^{-3}
+# MoO_{3} mass:                  1.841759 g
+#
+# Mo mass fraction in MoO_{3}:   0.666557
+# Mo mass density:               3.126151 g cm^{-3}
+# Mo number density:             1.962101e+22 cm^{-3}
+# Mo mass:                       1.227637 g
+#
+# Mo-100 amount fraction in Mo:  0.097440
+# Mo-100 mass fraction in Mo:    0.101460
+# Mo-100 mass density:           0.317180 g cm^{-3}
+# Mo-100 number density:         1.911872e+21 cm^{-3}
+# Mo-100 mass:                   0.124556 g
+#
+# Sum of microscopic PWMs:       1.249228e-26 electron^{-1}
+# Sum of macroscopic PWMs:       2.388364e-05 cm^{-3} electron^{-1}
+# Sum of per-vol reaction rates: 1.490699e+09 cm^{-3} s^{-1}
+# Sum of reaction rates:         5.853963e+08 s^{-1} or Bq
+# (= saturation yield)
+#---------------------------------------------------------------------
+
+#------------------------------------------------------------------------------------------------
+# eg0   | wrcc vhgt | Mo-99 yield | Mo-99 yield per uA | Mo-99 sp_yield | Mo-99 sp_yield per uA
+# (MeV) | (mm)      | (kBq)       | (kBq uA^{-1})      | (kBq g^{-1})   | (kBq g^{-1} uA^{-1}) 
+#------------------------------------------------------------------------------------------------
+20	1	76.598275	7.659828	62.394906	6.239491
+20	1.5	77.483802	7.748380	63.116233	6.311623
+20	2	73.855069	7.385507	60.160364	6.016036
+20	2.5	69.024173	6.902417	56.225245	5.622525
+20	3	64.411531	6.441153	52.467910	5.246791
+35	1	168.948986	16.894899	137.621325	13.762133
+35	1.5	192.517010	19.251701	156.819207	15.681921
+35	2	201.527441	20.152744	164.158863	16.415886
+35	2.5	201.954172	20.195417	164.506466	16.450647
+35	3	196.898961	19.689896	160.388627	16.038863
+50	1	212.782441	21.278244	173.326885	17.332689
+50	1.5	260.570288	26.057029	212.253587	21.225359
+50	2	290.475463	29.047546	236.613542	23.661354
+50	2.5	301.542120	30.154212	245.628145	24.562815
+50	3	307.597204	30.759720	250.560455	25.056045
+#------------------------------------------------------------------------------------------------
+#eof
