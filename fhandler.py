@@ -35,10 +35,6 @@ class FHandler():
                             action='store_true',
                             help=('changes will be made'
                                   + ' directly to the input files'))
-        parser.add_argument('--nopause',
-                            action='store_true',
-                            help=('do not pause the shell'
-                                  + ' at the end of the program'))
         parser.add_argument('--cmt_symbs',
                             default=['#', '%'],
                             nargs='*',
@@ -67,6 +63,10 @@ class FHandler():
                             default='aft',
                             help=('[tilder] timestamp position'
                                   + ' relative to the input filename'))
+        parser.add_argument('--nopause',
+                            action='store_true',
+                            help=('do not pause the shell'
+                                  + ' at the end of the program'))
         parser.add_argument('file',
                             nargs='+',
                             help='files to be handled')
