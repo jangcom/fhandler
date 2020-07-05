@@ -1,0 +1,123 @@
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# phitar - A PHITS wrapper for targetry design
+# phitar v1.05 (2020-06-13)
+# Perl v5.30.0
+# Current time: 2020-07-02 06:01:11
+#
+# Jaewoong Jang
+# jangj@korea.ac.kr
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+#---------------------------------------------------------------------
+# Yield calculation conditions (last evaluated)
+#---------------------------------------------------------------------
+# Source particle: electron
+# Source energy distribution: gaussian_nrg
+# Center energy: 50 MeV
+# FWHM: 1 MeV, cutoff min: 47 MeV, cutoff max: 53 MeV
+# Source average current: 10.000000 uA
+# Source spatial distribution: gaussian_xy
+# FWHM on the xy plane: 4.5 mm
+# z-axis coordinates: -50 mm to -50 mm
+#
+# Converter material:      w
+# Converter density ratio: 1.000000
+# Converter mass density:  19.250000 g cm^{-3}
+# Converter diameter:      25.000000 mm
+# Converter thickness:     3.000000 mm
+# Converter volume:        1.472622 cm^{3}
+# Converter mass:          28.347965 g
+#
+# Converter-Mo target distance: 13.000000 mm
+#
+# Mo target:               moo3
+# Mo target density ratio: 1.000000
+# Mo target mass density:  4.690000 g cm^{-3}
+# Mo target diameter:      10.000000 mm
+# Mo target thickness:     5.000000 mm
+# Mo target volume:        0.392699 cm^{3}
+# Mo target mass:          1.841759 g
+#
+# Upstream flux monitor material: au
+# Upstream flux monitor density ratio: 1.000000
+# Upstream flux monitor mass density: 19.300000 g cm^{-3}
+# Upstream flux monitor diameter: 10.000000 mm
+# Upstream flux monitor thickness: 50.000000 um
+# Upstream flux monitor volume: 0.003927 cm^{3}
+# Upstream flux monitor mass: 0.075791 g
+#
+# Downstream flux monitor material: au
+# Downstream flux monitor density ratio: 1.000000
+# Downstream flux monitor mass density: 19.300000 g cm^{-3}
+# Downstream flux monitor diameter: 10.000000 mm
+# Downstream flux monitor thickness: 50.000000 um
+# Downstream flux monitor volume: 0.003927 cm^{3}
+# Downstream flux monitor mass: 0.075791 g
+# No target wrap
+#
+# Au-197 enrichment level: 1.000000
+# Average beam current:    10.000000 uA (6.241509e+13 electrons s^{-1})
+# Irradiation time:        0.050000 h
+#
+# Summary file:            wrcc-vhgt0p30-frad1p25-fgap1p30.out
+# maxcas:                  1000
+# maxbch:                  100
+#
+# Fluence file:            wrcc-vhgt0p30-frad1p25-fgap1p30-track-eng-au_up.ang
+# Fluence energy range:    8.049884--53.022486 MeV
+# Fluence ne:              1000
+# Fluence de:              0.044973 MeV
+# Fluence unit:            1/cm^2/source (PHITS tally unit number 1)
+#
+# xs file:                 tendl2015_au197_gn_mf3_t4.dat
+# xs interpolation algo:   csplines
+# xs energy range:         8.072370--53.000000 MeV
+# xs ne:                   1000
+# xs de:                   0.044970 MeV
+#---------------------------------------------------------------------
+#---------------------------------------------------------------------
+# Part of calculation results (last evaluated)
+#---------------------------------------------------------------------
+# Au_{met} mass density:         19.300000 g cm^{-3}
+# Au_{met} number density:       5.900865e+22 cm^{-3}
+# Au_{met} mass:                 0.075791 g
+#
+# Au mass fraction in Au_{met}:  1.000000
+# Au mass density:               19.300000 g cm^{-3}
+# Au number density:             5.900865e+22 cm^{-3}
+# Au mass:                       0.075791 g
+#
+# Au-197 amount fraction in Au:  1.000000
+# Au-197 mass fraction in Au:    1.000000
+# Au-197 mass density:           19.300000 g cm^{-3}
+# Au-197 number density:         5.900865e+22 cm^{-3}
+# Au-197 mass:                   0.075791 g
+#
+# Sum of microscopic PWMs:       4.292586e-26 electron^{-1}
+# Sum of macroscopic PWMs:       2.532997e-03 cm^{-3} electron^{-1}
+# Sum of per-vol reaction rates: 1.580972e+11 cm^{-3} s^{-1}
+# Sum of reaction rates:         6.208464e+08 s^{-1} or Bq
+# (= saturation yield)
+#---------------------------------------------------------------------
+
+#----------------------------------------------------------------------------------------------------
+# eg0   | wrcc vhgt | Au-196 yield | Au-196 yield per uA | Au-196 sp_yield | Au-196 sp_yield per uA
+# (MeV) | (mm)      | (kBq)        | (kBq uA^{-1})       | (kBq g^{-1})    | (kBq g^{-1} uA^{-1})  
+#----------------------------------------------------------------------------------------------------
+20        1              35.824001              3.582400        472.668750                47.266875
+20        1.5            38.866383              3.886638        512.810521                51.281052
+20        2              38.188892              3.818889        503.871578                50.387158
+20        2.5            35.986386              3.598639        474.811292                47.481129
+20        3              33.491573              3.349157        441.894248                44.189425
+35        1              66.424034              6.642403        876.411464                87.641146
+35        1.5            84.674025              8.467402       1117.205357               111.720536
+35        2              94.259465              9.425946       1243.677492               124.367749
+35        2.5            98.386335              9.838633       1298.128211               129.812821
+35        3              97.757823              9.775782       1289.835509               128.983551
+50        1              79.104209              7.910421       1043.716129               104.371613
+50        1.5           106.852842             10.685284       1409.836937               140.983694
+50        2             126.863849             12.686385       1673.866004               167.386600
+50        2.5           138.379000             13.837900       1825.799125               182.579913
+50        3             144.983455             14.498346       1912.939574               191.293957
+#----------------------------------------------------------------------------------------------------
+#eof

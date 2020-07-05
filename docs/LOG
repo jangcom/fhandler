@@ -2,4 +2,8 @@
 # J. Jang
 
 2020-07-05 (v1.00)
+- A file handling function added: sep2sep()
+- A file handling function added: tilder()
+
+2020-07-05 (v1.00)
 - Source code created
