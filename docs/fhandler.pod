@@ -39,8 +39,8 @@ fhandler - File handling assistant
 
 =head1 EXAMPLES
 
-    python fhandler.py ./samples/proglangs.tex --func adj_leading_spaces --flag _inc --num_space=4
-    python fhandler.py ./samples/proglangs.tex --func adj_leading_spaces --flag _dec --num_space=-4
+    python fhandler.py ./samples/proglangs.tex --func adj_leading_spaces --flag _inc --num_spaces=4
+    python fhandler.py ./samples/proglangs.tex --func adj_leading_spaces --flag _dec --num_spaces=-4
 
 =head1 REQUIREMENTS
 
