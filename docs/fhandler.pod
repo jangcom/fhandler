@@ -1,0 +1,66 @@
+=head1 NAME
+
+fhandler - File handling assistant
+
+=head1 SYNOPSIS
+
+    python fhandler.py [-h] [--func FUNC] [--flag FLAG]
+                       [--inplace] [--num_spaces NUM_SPACES]
+                       [--cmt_symbs [CMT_SYMBS [CMT_SYMBS ...]]]
+                       file [file ...]
+
+=head1 DESCRIPTION
+
+    fhandler provides functions that can facilitate file handling.
+
+=head1 OPTIONS
+
+    -h, --help
+        Help message
+
+    --func FUNC
+        adj_leading_spaces (default)
+            Adjust the leading spaces of input files.
+
+    --flag FLAG
+        A filename flag to be appended to the output file
+
+    --inplace
+        Changes will be made directly to the input files.
+
+    --num_spaces NUM_SPACES
+        [adj_leading_spaces] Number of leading spaces to be adjusted
+
+    --cmt_symbs [CMT_SYMBS [CMT_SYMBS ...]]
+        [adj_leading_spaces] Comment symbols of the input files
+
+    file ...
+        Files to be handled
+
+=head1 EXAMPLES
+
+    python fhandler.py ./samples/proglangs.tex --func adj_leading_spaces --flag _inc --num_space=4
+    python fhandler.py ./samples/proglangs.tex --func adj_leading_spaces --flag _dec --num_space=-4
+
+=head1 REQUIREMENTS
+
+Python 3
+
+=head1 SEE ALSO
+
+L<dhandler - Directory handling assistant|https://github.com/jangcom/dhandler>
+
+=head1 AUTHOR
+
+Jaewoong Jang <jangj@korea.ac.kr>
+
+=head1 COPYRIGHT
+
+Copyright (c) 2020 Jaewoong Jang
+
+=head1 LICENSE
+
+This software is available under the MIT license;
+the license information is found in 'LICENSE'.
+
+=cut
