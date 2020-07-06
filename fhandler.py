@@ -7,7 +7,7 @@ FHandler()
     A collection of methods that can facilitate file handling
 """
 
-__version__ = '1.00'
+__version__ = '1.0.0'
 __author__ = 'Jaewoong Jang'
 
 import os
