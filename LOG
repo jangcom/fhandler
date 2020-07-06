@@ -1,6 +1,9 @@
 # fhandler log
 # J. Jang
 
+2020-07-06 (v1.00)
+- Docstrings added and augmented
+
 2020-07-05 (v1.00)
 - File handling function added: tilder()
 - File handling function added: sep2sep()
