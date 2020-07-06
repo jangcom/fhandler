@@ -1,4 +1,15 @@
 #!/usr/bin/env python3
+"""File handling assistant
+
+Classes
+-------
+FHandler()
+    A collection of methods that can facilitate file handling
+"""
+
+__version__ = '1.0.0'
+__author__ = 'Jaewoong Jang'
+
 import os
 import sys
 import re
@@ -8,19 +19,68 @@ import argparse
 
 
 class FHandler():
+    """A collection of methods that can facilitate file handling
+
+    This class provides methods that can automate some mundane,
+    repetitive file handling tasks, such as changing data limiters
+    and backing up files.
+
+    Attributes
+    ----------
+    border_len : int
+        The number of symbols of a border line
+    borders : dict
+        Storage for border lines of different symbols
+    funcs : dict
+        Storage for the objects of file handling methods
+
+    Methods
+    -------
+    read_argv()
+        Read in sys.argv using the argparse module.
+    disp_func_run(msg, border_symb='-')
+        Display a message that a function will be run.
+    yn_prompt(msg='Continue? (y/n)> ')
+        Invoke a y/n prompt.
+    exam_exists(files, action='exit', border_symb='*')
+        Examine if the designated files exist.
+    warn_inplace(inplace, border_symb='*')
+        Warn of the inplace toggle.
+    adj_leading_spaces(args, encoding='utf-8')
+        Adjust the leading spaces of input files.
+    sep2sep(args, encoding='utf-8')
+        Change a data separator to a designated one.
+    tilder(args)
+        Back up files into respective subdirectories.
+
+    Notes
+    -----
+    When a file handling method is newly defined, add the name and
+    object of the method as a key-value pair to the funcs attribute;
+    a user selects which file handling method to use via the command
+    line argument --func, which will then be used as a key of the
+    funcs attribute.
+    """
+
     def __init__(self):
-        self.cwd = os.getcwd()
+        """Bind the objects of file handling methods to a dict."""
+        self.border_len = 60
+        self.borders = {s: s * self.border_len for s in ['-', '=', '+', '*']}
         self.funcs = {
             'adj_leading_spaces': self.adj_leading_spaces,
             'sep2sep': self.sep2sep,
             'tilder': self.tilder,
-            # ... Add new file handling functions here.
+            # ... Add new file handling methods here.
         }
-        self.border_len = 60
-        self.borders = {s: s * self.border_len for s in ['-', '=', '+', '*']}
 
     def read_argv(self):
-        """Read in sys.argv."""
+        """Read in sys.argv using the argparse module.
+
+        Returns
+        -------
+        argparse.Namespace
+            An object of argparse.Namespace
+        """
         parser = argparse.ArgumentParser(
             formatter_class=argparse.ArgumentDefaultsHelpFormatter)
         parser.add_argument('--func',
@@ -40,8 +100,8 @@ class FHandler():
                             nargs='*',
                             help='comment symbols of the input files')
         parser.add_argument('--num_spaces',
-                            default=-4,
                             type=int,
+                            default=-4,
                             help=('[adj_leading_spaces]'
                                   + ' number of leading spaces'
                                   + ' to be adjusted'))
@@ -74,14 +134,33 @@ class FHandler():
 
     def disp_func_run(self, msg,
                       border_symb='-'):
-        """Display a message that a function will be run."""
+        """Display a message that a function will be run.
+
+        Arguments
+        ---------
+        msg : str
+            The message to be displayed
+        border_symb : str
+            A key of the borders attribute (default '-')
+        """
         print(self.borders[border_symb])
         print(msg)
         print(self.borders[border_symb])
 
     def yn_prompt(self,
                   msg='Continue? (y/n)> '):
-        """Invoke a y/n prompt."""
+        """Invoke a y/n prompt.
+
+        Arguments
+        ---------
+        msg : str
+            The prompt message (default 'Continue? (y/n)> ')
+
+        Returns
+        -------
+        bool
+            True for y or Y, False for n or Y
+        """
         while True:
             yn = input(msg)
             if re.match(r'\b[yY]\b', yn):
@@ -91,7 +170,22 @@ class FHandler():
 
     def exam_exists(self, files,
                     action='exit', border_symb='*'):
-        """Examine if the designated files exist."""
+        """Examine if the designated files exist.
+
+        Arguments
+        ---------
+        files : list
+            Files to be examined whether they exist
+        action : str
+            Actions for nonexisting files (default 'exit')
+        border_symb : str
+            A key of the borders attribute (default '*')
+
+        Returns
+        -------
+        existing_files : list
+            Files found to exist out of the designated files
+        """
         existing_files = []
         for f in files:
             f = os.path.abspath(f)
@@ -110,7 +204,13 @@ class FHandler():
 
     def warn_inplace(self, inplace,
                      border_symb='*'):
-        """Warn of the inplace toggle."""
+        """Warn of the inplace toggle.
+
+        inplace : bool
+            The sign whether this method should run or not
+        border_symb : str
+            A key of the borders attribute (default '*')
+        """
         if inplace:
             print(self.borders[border_symb])
             print('[--inplace] toggled on:')
@@ -122,7 +222,15 @@ class FHandler():
 
     def adj_leading_spaces(self, args,
                            encoding='utf-8'):
-        """Adjust the leading spaces of input files."""
+        """Adjust the leading spaces of input files.
+
+        Arguments
+        ---------
+        args : argparse.Namespace
+            The list of command line arguments passed
+        encoding : str
+            The encoding of input and output files (default 'utf-8')
+        """
         self.disp_func_run('adj_leading_spaces():'
                            + ' Adjusting leading spaces'
                            + f' by [{args.num_spaces}]...')
@@ -162,7 +270,15 @@ class FHandler():
 
     def sep2sep(self, args,
                 encoding='utf-8'):
-        """Change a data separator to a designated one."""
+        """Change a data separator to a designated one.
+
+        Arguments
+        ---------
+        args : argparse.Namespace
+            The list of command line arguments passed
+        encoding : str
+            The encoding of input and output files (default 'utf-8')
+        """
         self.disp_func_run('sep2sep():'
                            + ' Changing the data separator'
                            + f' from [{args.sep_from}] to [{args.sep_to}]...')
@@ -215,7 +331,13 @@ class FHandler():
             print('Output: [{}]'.format(f_new))
 
     def tilder(self, args):
-        """Back up files into respective subdirectories."""
+        """Back up files into respective subdirectories.
+
+        Arguments
+        ---------
+        args : argparse.Namespace
+            The list of command line arguments passed
+        """
         self.disp_func_run('tilder(): Backing up the input files...')
         # Timestamps
         ymd = datetime.today().strftime('%Y%m%d')
@@ -272,19 +394,17 @@ class FHandler():
 
 
 if __name__ == '__main__':
-    """fhandler - File handling assistant"""
-    import fhandler
-    fh = fhandler.FHandler()
+    fh = FHandler()
 
     # I/O
-    args = fh.read_argv()
+    argv = fh.read_argv()
 
     # Preprocessing
-    args.file = fh.exam_exists(args.file)
-    if args.func != 'tilder':
-        fh.warn_inplace(args.inplace)
+    argv.file = fh.exam_exists(argv.file)
+    if argv.func != 'tilder':
+        fh.warn_inplace(argv.inplace)
 
     # Run the user-requested file handling function.
-    fh.funcs[args.func](args)
-    if not args.nopause:
+    fh.funcs[argv.func](argv)
+    if not argv.nopause:
         input('Press enter to exit...')
