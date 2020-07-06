@@ -206,6 +206,8 @@ class FHandler():
                      border_symb='*'):
         """Warn of the inplace toggle.
 
+        Arguments
+        ---------
         inplace : bool
             The sign whether this method should run or not
         border_symb : str
