@@ -406,7 +406,7 @@ if __name__ == '__main__':
     if argv.func != 'tilder':
         fh.warn_inplace(argv.inplace)
 
-    # Run the user-requested file handling function.
+    # Run the user-requested file handling method.
     fh.funcs[argv.func](argv)
     if not argv.nopause:
         input('Press enter to exit...')
