@@ -99,4 +99,4 @@ Copyright (c) 2020 Jaewoong Jang
 ## LICENSE
 
 This software is available under the MIT license;
-the license information is found in 'LICENSE'.
+the license information is found in "LICENSE".
